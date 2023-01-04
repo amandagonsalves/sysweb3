@@ -1,9 +1,11 @@
+name: "set env files to gh secrets"
+
 on:
   pull_request:
     types: [opened, synchronize]
 jobs:
   secrets:
-    name: Create env file with gh secrets
+    name: create env file with gh secrets
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
