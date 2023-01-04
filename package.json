@@ -6,6 +6,9 @@
   "author": "Amanda Gonsalves <amandagonsalvesags@gmail.com>",
   "license": "MIT",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "release": "release-it"
   },
