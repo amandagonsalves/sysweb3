@@ -1,6 +1,6 @@
 {
   "name": "@pollum-io/sysweb3-packages",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "main": "index.ts",
   "repository": "git@github.com:amandagonsalves/sysweb3.git",
   "author": "Amanda Gonsalves <amandagonsalvesags@gmail.com>",
