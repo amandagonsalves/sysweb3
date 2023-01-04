@@ -12,15 +12,10 @@ jobs:
     name: "draft a new release"
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: create release branch
         run: git checkout -b release/${{ github.event.inputs.version }}
-
-      - name: update changelog
-        uses: thomaseizinger/keep-a-changelog-new-release@1.1.0
-        with:
-          version: ${{ github.event.inputs.version }}
 
       # In order to make a commit, we need to initialize a user.
       # You may choose to write something less generic here if you want, it doesn't matter functionality wise.
