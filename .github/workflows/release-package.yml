@@ -1,5 +1,3 @@
-name: release @pollum-io/sysweb3-packages
-
 on:
   release:
     types: [created]
