@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-## [2.0.0] - 2019-02-15
+## [2.1.0] - 2019-02-15
 
 [unreleased]: https://github.com/amandagonsalves/sysweb3/branchCompare?baseVersion=GTv2.1.0&targetVersion=GBmain
 [2.1.0]: https://github.com/amandagonsalves/sysweb3/branchCompare?baseVersion=GTv2.0.0&targetVersion=GTv2.1.0
