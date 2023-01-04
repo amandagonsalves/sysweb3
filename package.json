@@ -1,16 +1,55 @@
 {
   "name": "@amandagonsalves/sysweb3-packages",
   "version": "2.1.0",
-  "main": "index.ts",
+  "main": "./lib/cjs/index.js",
   "repository": "git@github.com:amandagonsalves/sysweb3.git",
   "author": "Amanda Gonsalves <amandagonsalvesags@gmail.com>",
   "license": "MIT",
-  "private": false,
+  "files": [
+    "lib/**/*"
+  ],
+  "types": "./lib/cjs/types/index.d.ts",
   "publishConfig": {
     "access": "public"
   },
   "scripts": {
-    "release": "release-it"
+    "clean": "rm -rf ./lib",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs",
+    "build:esm": "tsc -p ./configs/tsconfig.esm.json --outDir lib/esm --declarationDir lib/esm/types && mv lib/esm/index.js lib/esm/index.mjs",
+    "build:cjs": "tsc -p ./configs/tsconfig.cjs.json --outDir lib/cjs --declarationDir lib/cjs/types",
+    "prepack": "npm run build",
+    "build:keyring": "yarn --cwd packages/keyring build",
+    "build:core": "yarn --cwd packages/core build",
+    "build:utils": "yarn --cwd packages/utils build",
+    "build:network": "yarn --cwd packages/network build",
+    "build:all": "yarn build && yarn build:keyring && yarn build:core && yarn build:utils && yarn build:network",
+    "release:keyring": "yarn --cwd packages/keyring release",
+    "release:core": "yarn --cwd packages/core release",
+    "release:utils": "yarn --cwd packages/utils release",
+    "release:network": "yarn --cwd packages/network release",
+    "release:all": "yarn build:all && yarn release:keyring && yarn release:core && yarn release:utils && yarn release:network release-it"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./lib/esm/types/index.d.ts",
+        "default": "./lib/esm/index.mjs"
+      },
+      "require": {
+        "types": "./lib/cjs/types/index.d.ts",
+        "default": "./lib/cjs/index.js"
+      }
+    },
+    "./core": {
+      "import": {
+        "types": "./lib/esm/core/types.d.ts",
+        "default": "./lib/esm/core/index.mjs"
+      },
+      "require": {
+        "types": "./lib/cjs/core/index.d.ts",
+        "default": "./lib/cjs/core/index.cjs"
+      }
+    }
   },
   "dependencies": {
     "@release-it/keep-a-changelog": "^3.1.0",

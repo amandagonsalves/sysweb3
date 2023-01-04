@@ -1,0 +1,26 @@
+{
+  "name": "@amandagonsalves/sysweb3-core",
+  "version": "1.0.20",
+  "main": "../../lib/core/cjs/index.js",
+  "repository": "git@github.com:Pollum-io/sysweb3.git",
+  "author": "Pollum Labs <pollum@pollum.io>",
+  "license": "MIT",
+  "files": [
+    "../../lib/**/*"
+  ],
+  "types": "../../lib/core/cjs/types/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "yarn && rm -rf ../../lib/core/esm && yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc -p ../../configs/tsconfig.esm.json --outDir ../../lib/core/esm --declarationDir ../../lib/core/esm/types && mv ../../lib/core/esm/index.js ../../lib/core/esm/index.mjs",
+    "build:cjs": "tsc -p ../../configs/tsconfig.cjs.json --outDir ../../lib/core/cjs --declarationDir ../../lib/core/cjs/types && cp ../../lib/core/cjs/index.js ../../lib/core/index.js",
+    "prepack": "yarn build",
+      "release": "yarn build && release-it"
+  },
+  "dependencies": {
+    "@release-it/keep-a-changelog": "^3.1.0",
+    "release-it": "^15.6.0"
+  }
+}

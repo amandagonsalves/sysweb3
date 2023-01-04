@@ -1,0 +1,48 @@
+{
+  "name": "@amandagonsalves/sysweb3-utils",
+  "version": "1.1.214",
+  "description": "A helper for multi-chain accounts.",
+  "main": "../../lib/utils/cjs/index.js",
+  "repository": "git@github.com:Pollum-io/sysweb3.git",
+  "author": "Pollum Labs <pollum@pollum.io>",
+  "license": "MIT",
+  "files": [
+    "../../lib/**/*"
+  ],
+  "types": "lib/utils/cjs/types/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "yarn && rm -rf ../../lib/utils/esm && yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc -p ../../configs/tsconfig.esm.json --outDir ../../lib/utils/esm --declarationDir ../../lib/utils/esm/types && mv ../../lib/utils/esm/index.js ../../lib/utils/esm/index.mjs",
+    "build:cjs": "tsc -p ../../configs/tsconfig.cjs.json --outDir ../../lib/utils/cjs --declarationDir ../../lib/utils/cjs/types && cp ../../lib/utils/cjs/index.js ../../lib/utils/index.js",
+    "prepack": "yarn build",
+    "release": "yarn build && release-it"
+  },
+  "dependencies": {
+    "@ethersproject/contracts": "^5.6.2",
+    "@amandagonsalves/sysweb3-core": "^1.0.19",
+    "@amandagonsalves/sysweb3-network": "^1.0.72",
+    "axios": "^0.26.1",
+    "bech32": "^2.0.0",
+    "bip32": "^3.0.1",
+    "bip44-constants": "^114.0.0",
+    "bip84": "^0.2.7",
+    "bitcoinjs-lib": "^6.0.1",
+    "camelcase-keys": "^7.0.2",
+    "coinselectsyscoin": "^1.0.77",
+    "crypto-js": "^4.1.1",
+    "ethers": "^5.6.4",
+    "syscoinjs-lib": "^1.0.214",
+    "syscointx-js": "^1.0.101",
+    "web3": "^1.7.1",
+    "@release-it/keep-a-changelog": "^3.1.0",
+    "release-it": "^15.6.0"
+  },
+  "devDependencies": {
+    "@types/crypto-js": "^4.1.1",
+    "@types/node": "^17.0.23",
+    "jest": "^27.5.1"
+  }
+}

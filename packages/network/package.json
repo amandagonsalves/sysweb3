@@ -1,0 +1,36 @@
+{
+  "name": "@amandagonsalves/sysweb3-network",
+  "version": "1.0.73",
+  "description": "A network management tool for multi-chain accounts.",
+  "private": false,
+  "main": "../../lib/network/cjs/index.js",
+  "repository": "git@github.com:Pollum-io/sysweb3.git",
+  "author": "Pollum Labs <pollum@pollum.io>",
+  "license": "MIT",
+  "files": [
+    "../../lib/**/*"
+  ],
+  "types": "../../lib/network/cjs/types/index.d.ts",
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "build": "yarn && rm -rf ../../lib/network/esm && yarn build:esm && yarn build:cjs",
+    "build:esm": "tsc -p ../../configs/tsconfig.esm.json --outDir ../../lib/network/esm --declarationDir ../../lib/network/esm/types && mv ../../lib/network/esm/index.js ../../lib/network/esm/index.mjs",
+    "build:cjs": "tsc -p ../../configs/tsconfig.cjs.json --outDir ../../lib/network/cjs --declarationDir ../../lib/network/cjs/types && cp ../../lib/network/cjs/index.js ../../lib/network/index.js",
+    "prepack": "yarn build",
+    "release": "yarn build && release-it"
+  },
+  "dependencies": {
+    "@release-it/keep-a-changelog": "^3.1.0",
+    "release-it": "^15.6.0",
+    "@amandagonsalves/sysweb3-core": "^1.0.19",
+    "@amandagonsalves/sysweb3-utils": "^1.1.214",
+    "axios": "^0.26.1",
+    "bip44-constants": "^114.0.0",
+    "bs58check": "^2.1.2",
+    "eth-chains": "^1.0.0",
+    "ethers": "^5.6.9",
+    "web3": "^1.7.1"
+  }
+}
