@@ -8,5 +8,8 @@
   "private": false,
   "publishConfig": {
     "@amandagonsalves:registry": "https://npm.pkg.github.com"
+  },
+  "dependencies": {
+    "@release-it/keep-a-changelog": "^3.1.0"
   }
 }
