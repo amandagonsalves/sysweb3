@@ -6,10 +6,11 @@
   "author": "Amanda Gonsalves <amandagonsalvesags@gmail.com>",
   "license": "MIT",
   "private": false,
-  "publishConfig": {
-    "@amandagonsalves:registry": "https://npm.pkg.github.com"
+  "scripts": {
+    "release": "release-it"
   },
   "dependencies": {
-    "@release-it/keep-a-changelog": "^3.1.0"
+    "@release-it/keep-a-changelog": "^3.1.0",
+    "release-it": "^15.6.0"
   }
 }

@@ -16,6 +16,8 @@
       "versionUrl": "{repositoryUrl}/branchCompare?baseVersion=GT{previousTag}&targetVersion=GT{tagName}",
       "firstVersionUrl": "{repositoryUrl}?version=GT{tagName}"
     }
-  }
+  }},
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
   }
 }
