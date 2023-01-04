@@ -1,6 +1,6 @@
 {
   "name": "@amandagonsalves/sysweb3-packages",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "main": "index.ts",
   "repository": "git@github.com:amandagonsalves/sysweb3.git",
   "author": "Amanda Gonsalves <amandagonsalvesags@gmail.com>",
