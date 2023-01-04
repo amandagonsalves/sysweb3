@@ -3,7 +3,7 @@
     "commitMessage": "chore: release v${version}"
   },
   "github": {
-    "release": true
+    "release": false
   },
   "plugins": {
    "@release-it/keep-a-changelog": {
@@ -16,6 +16,11 @@
       "versionUrl": "{repositoryUrl}/branchCompare?baseVersion=GT{previousTag}&targetVersion=GT{tagName}",
       "firstVersionUrl": "{repositoryUrl}?version=GT{tagName}"
     }
-  }
+  }},
+  "publishConfig": {
+    "access": "public"
+  },
+  "npm": {
+    "publishArgs": "--registry=https://registry.npmjs.org"
   }
 }
